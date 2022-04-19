@@ -1,0 +1,102 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+button, a {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	color: inherit;
+}
+
+a {
+	text-decoration: none;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(to right, rgb(59 130 246), rgb(21 128 61));
+	color: white;
+	height: 100vh;
+}
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	width: 66%;
+	background-color: white;
+	color: rgb(31 41 55);
+	border-radius: 6px;
+	padding: 1rem;
+}
+
+.titleWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.title {
+	padding: 0.5rem 1.25rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.divider {
+	border-top: 2px solid rgb(168 85 247);
+}
+
+.buttonWrapper {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.button {
+	color: white;
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	margin-bottom: 1rem;
+	background: linear-gradient(to right, rgb(74, 222, 128), rgb(21, 127, 60));
+}
+
+.table {
+	width: 100%;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.tableHead {
+	color: rgb(243, 244, 246);
+	background: linear-gradient(to right, rgb(168, 85, 247), rgb(107, 33, 168));
+}
+
+th {
+	text-align: left;
+	padding: 1rem;
+}
+
+.darkTr {
+	background-color: rgb(233, 2134, 255);
+}
+
+.lightTr {
+	background-color: rgb(243, 232, 255);
+}
+
+td {
+	text-align: left;
+	padding: 1rem;
+}

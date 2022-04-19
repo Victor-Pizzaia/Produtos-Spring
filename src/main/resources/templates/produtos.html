@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<title>Prova de Spring do Dalilão</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style/home.css" />
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="layout">
+				<div class="titleWrapper">
+					<h1 class="title">
+						Cadastro de Produtos
+					</h1>
+					<hr class="divider">
+				</div>
+				<div class="buttonWrapper">
+					<button class="button">Cadastrar Produto</button>
+				</div>
+				<table class="table">
+					<thead class="tableHead">
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Descrição</th>
+							<th>Quantidade em Estoque</th>
+							<th>Valor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${products}" th:classappend="${product.idProduto} % 2 === 0 ? darkTr : lightTr">
+							<td><span th:text="${product.idProduto}"/></td>
+							<td><span th:text="${product.nome}"/></td>
+							<td><span th:text="${product.descricao}"/></td>
+							<td><span th:text="${product.quantidadeEstoque}"/></td>
+							<td><span th:text="${product.valor}"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
