@@ -2,15 +2,16 @@ package com.br.prova.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.prova.models.Produto;
 import com.br.prova.repository.IProdutoRepository;
@@ -30,10 +31,15 @@ public class ProductsController {
 		return modelView;
 	}
 	
-	@RequestMapping(value="/produtos", method=RequestMethod.POST)
-	public ResponseEntity<Produto> save(@RequestBody Produto prod) {
+	@RequestMapping(value="/cadastro", method=RequestMethod.POST)
+	public String save(@Valid Produto prod, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
+			return "redirect:/cadastro";
+		}
 		val cadProduct = productRepository.save(prod);
-		return new ResponseEntity<Produto>(cadProduct, HttpStatus.CREATED);
+		attributes.addFlashAttribute("mensagem", "Produto adicionado com sucesso ! #" + cadProduct.getIdProduto());
+		return "redirect:/produtos";
 	}
 	
 	@RequestMapping(value="/produtos/{id}", method=RequestMethod.GET)
@@ -41,9 +47,14 @@ public class ProductsController {
 		return productRepository.findById(id);
 	}
 
-	@RequestMapping(value="/produtos/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<String> delete(@PathVariable int id) {
+	@RequestMapping(value="/deletarProduto", method=RequestMethod.DELETE)
+	public String delete(int id) {
 		productRepository.deleteById(id);
-		return ResponseEntity.ok("Produto Deletado");
+		return "redirect:/produtos";
+	}
+	
+	@RequestMapping(value="/cadastro", method=RequestMethod.GET)
+	public String cadastro() {
+		return "cadastro";
 	}
 }

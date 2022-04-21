@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<title>Prova de Spring do Dalilão</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style/home.css?version=54" />
+		<link rel="stylesheet" type="text/css" href="style/cadastro.css?version=54" />
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="layout">
+				<div class="titleWrapper">
+					<h1 class="title">
+						Cadastro de Produtos
+					</h1>
+					<hr class="divider">
+				</div>
+				<form method="post">
+					<div class="textArea">
+						<label class="text">Nome</label>
+						<input class="textField" type="text" name="nome">
+					</div>
+					<div class="textArea">
+						<label class="text">Descrição</label>
+						<input class="textField" type="text" name="descricao">
+					</div>
+					<div class="textArea">
+						<label class="text">Valor</label>
+						<input class="textField" type="number" name="valor">
+					</div>
+					<div class="textArea">
+						<label class="text">Quandidade Estoque</label>
+						<input class="textField" type="number" name="quantidadeEstoque">
+					</div>
+					<div class="submitForm">
+						<button type="submit" class="button submitButton">Salvar</button>
+						<a href="/produtos" class="button cancelButton">Voltar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

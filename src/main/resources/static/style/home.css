@@ -56,7 +56,8 @@ a {
 }
 
 .divider {
-	border-top: 2px solid rgb(168 85 247);
+	border: 2px solid rgb(168 85 247);
+	width: 100%;
 }
 
 .buttonWrapper {
@@ -88,15 +89,39 @@ th {
 	padding: 1rem;
 }
 
-.darkTr {
-	background-color: rgb(233, 2134, 255);
+.productLines {
+	background-color: rgb(233, 214, 255);
 }
 
-.lightTr {
-	background-color: rgb(243, 232, 255);
-}
-
-td {
+.line {
 	text-align: left;
-	padding: 1rem;
+	padding: 0.5rem;
+}
+
+.lineIcons {
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem;
+}
+
+.iconButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	padding: 0.5rem;
+	margin: 0.25rem;
+	background: #fff;
+}
+
+.iconButton:hover {
+	background-color: rgb(250, 245, 255);
+}
+
+.iconEdit {
+	color: rgb(22 163 74);
+}
+
+.iconDelete {
+	color: rgb(239 68 68);
 }
