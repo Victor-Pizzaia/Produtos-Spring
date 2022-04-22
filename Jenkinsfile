@@ -7,7 +7,7 @@ pipeline {
                 bat 'echo "Starting pipeline"'
                 bat 'mvn --version'
                 bat 'mvn clean'
-                bat 'mnv package'
+                bat 'mvn package'
             }
         }
     }
