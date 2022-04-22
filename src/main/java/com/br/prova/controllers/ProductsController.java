@@ -1,7 +1,5 @@
 package com.br.prova.controllers;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,12 +41,14 @@ public class ProductsController {
 	}
 	
 	@RequestMapping(value="/produtos/{id}", method=RequestMethod.GET)
-	public Optional<Produto> getById(@PathVariable int id) {
-		return productRepository.findById(id);
+	public ModelAndView getById(@PathVariable int id) {
+		ModelAndView modelView = new ModelAndView("/editar");
+		productRepository.findById(id).ifPresent(o -> modelView.addObject("product", o));
+		return modelView;
 	}
 
-	@RequestMapping(value="/deletarProduto", method=RequestMethod.DELETE)
-	public String delete(int id) {
+	@RequestMapping(value="/deletarProduto/{id}", method=RequestMethod.GET)
+	public String delete(@PathVariable int id) {
 		productRepository.deleteById(id);
 		return "redirect:/produtos";
 	}
