@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo "Starting pipeline"'
-                sh 'mvn --version'
-                sh 'mvn clean'
-                sh 'mnv package'
+                bat 'echo "Starting pipeline"'
+                bat 'mvn --version'
+                bat 'mvn clean'
+                bat 'mnv package'
             }
         }
     }
